@@ -4,12 +4,17 @@ function CreaUnQuadrato() {
     return square;
 }
 
-function randomNum() {
-    let j = 0;
-    while (j < 16) {
-        let randomNum = Math.floor(Math.random() * 16 + 1);
-        j++;
+function createdBombs(max) {
+    const bombsCreated = [];
+
+    while (bombsCreated.length < 16) {
+        let randomNum = Math.floor(Math.random() * max + 1);
+
+        if (!bombsCreated.includes(randomNum)) {
+            bombsCreated.push(randomNum);
+        }
     }
+    return bombsCreated;
 }
 
 
@@ -17,53 +22,38 @@ function randomNum() {
 document.getElementById('btn_start').addEventListener('click', function () {
     const contenitore = document.getElementById('container');
     contenitore.innerHTML = '';
+    let bombs = [];
 
     let livello = document.getElementById('level').value;
     console.log(livello)
+    let maxCels = 100;
+    let grid = 'width10';
 
-    if (livello == 1) {
-
-        for (let i = 1; i < 101; i++) {
-            let selSquare = CreaUnQuadrato();
-            selSquare.addEventListener('click', function () {
-                this.className += (' bg_cel');
-                console.log(i);
-            });
-
-            selSquare.innerText = i;
-            contenitore.append(selSquare);
-        };
-
-        let random = randomNum();
-        console.log(randomNum())
+    if (livello == 2) {
+        maxCels = 81;
+        grid = 'width9';
+    } else if (livello == 3) {
+        maxCels = 49;
+        grid = 'width7';
     }
+    bombs = createdBombs(maxCels);
 
 
-    else if (livello == 2) {
-        for (let i = 1; i < 82; i++) {
-            let selSquare = CreaUnQuadrato();
-            selSquare.classList.replace('width10', 'width9');
-            selSquare.addEventListener('click', function () {
-                this.className += (' bg_cel');
-                console.log(i);
-            });
-            selSquare.innerText = i;
-            contenitore.append(selSquare);
-        };
-    }
-    else if (livello == 3) {
-        for (let i = 1; i < 50; i++) {
-            let selSquare = CreaUnQuadrato();
-            selSquare.classList.replace('width10', 'width7');
-            selSquare.addEventListener('click', function () {
-                this.className += (' bg_cel');
-                console.log(i);
-            });
-            selSquare.innerText = i;
-            contenitore.append(selSquare);
-        };
 
-    }
+    for (let i = 1; i <= maxCels; i++) {
+        let selSquare = CreaUnQuadrato();
+        selSquare.classList.add(grid);
 
+        selSquare.addEventListener('click', function () {
+            this.className += (' bg_cel');
+            console.log(i);
+        });
+
+        selSquare.innerText = i;
+        contenitore.append(selSquare);
+    };
+
+
+    console.log(bombs)
 
 });
