@@ -29,11 +29,13 @@ document.getElementById('btn_start').addEventListener('click', function () {
                 this.className += (' bg_cel');
                 console.log(i);
             });
+
             selSquare.innerText = i;
             contenitore.append(selSquare);
         };
+
         let random = randomNum();
-        console.log(random)
+        console.log(randomNum())
     }
 
 
