@@ -29,7 +29,9 @@ document.getElementById('btn_start').addEventListener('click', function () {
     let livello = document.getElementById('level').value;
     console.log(livello)
 
-    // valore di defoault 1° livello, giusto per creare le variabili e non fare delle variabili 0 e un ulteriore if
+    let score = 0;
+
+    // valore di default 1° livello, giusto per creare le variabili e non fare delle variabili 0 e un ulteriore if
     let maxCels = 100;
     let col = 'width10';
 
@@ -41,6 +43,7 @@ document.getElementById('btn_start').addEventListener('click', function () {
         maxCels = 49;
         col = 'width7';
     }
+
     // l'array vuoto prende i valori dalla funzione e dalle variabili maxcels
     bombs = createdBombs(maxCels);
 
@@ -50,10 +53,15 @@ document.getElementById('btn_start').addEventListener('click', function () {
         selSquare.classList.add(col);
 
         selSquare.addEventListener('click', function () {
-            this.className += (' bg_cel');
-            console.log(i);
-            if (bombs.includes((i))) {
-                console.log('fottiti');
+
+            if (bombs.includes(i)) {
+                selSquare.classList.add('bg_red');
+                alert(`BOOM! Hai totalizzato ${score} punti`);
+            }
+            else if (!bombs.includes(i) && !selSquare.classList.contains('bg_cel')) {
+                selSquare.classList.add('bg_cel');
+                score++;
+                console.log(score);
             }
         });
 
