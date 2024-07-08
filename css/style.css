@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#btn_start {
+    padding: 10px;
+    background-color: cadetblue;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.container,
+header {
+    max-width: 1200px;
+    margin: 30px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.content {
+    aspect-ratio: 1/1;
+    color: white;
+    background-color: gray;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg_cel {
+    background-color: cadetblue;
+
+}
+
+select {
+    margin-left: 20px;
+    border-radius: 10px;
+}
+
+.width10 {
+    width: calc(100%/10);
+}
+
+.width9 {
+    width: calc(100%/9);
+}
+
+.width7 {
+    width: calc(100%/7);
+}
