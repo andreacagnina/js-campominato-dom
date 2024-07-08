@@ -1,6 +1,7 @@
 
 *Consegna*
 Copiamo la griglia fatta ieri nella nuova repo e aggiungiamo la logica del gioco (attenzione: non bisogna copiare tutta la cartella dell'esercizio ma solo l'index.html, e le cartelle js/ css/ con i relativi script e fogli di stile, per evitare problemi con l'inizializzazione di git).
+
 Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe. Attenzione: **nella stessa cella può essere posizionata al massimo una bomba, perciò nell’array delle bombe non potranno esserci due numeri uguali.
 In seguito l'utente clicca su una cella: se il numero è presente nella lista dei numeri generati - abbiamo calpestato una bomba - la cella si colora di rosso e la partita termina. Altrimenti la cella cliccata si colora di azzurro e l'utente può continuare a cliccare sulle altre celle.
 La partita termina quando il giocatore clicca su una bomba o quando raggiunge il numero massimo possibile di numeri consentiti (ovvero quando ha rivelato tutte le celle che non sono bombe).
@@ -23,7 +24,13 @@ Proviamo sempre prima con dei console.log() per capire se stiamo ricevendo i dat
 Le validazioni e i controlli possiamo farli anche in un secondo momento.
 
 
-
+-tramite while genero 16 numeri randomici e li inserisco in un array
+-tramite if controllo che questi numeri non siano già presenti, se non lo sono li aggiungo
+--altrimenti non li aggiungo
+-assegno ai numeri randomici dei valori i
+-tramite il secondo eventlistener se la casella clickata è diversa dalla posizione dei numeri randomici, allora lo sfondo dieventa blu
+--altrimenti diventa rosso e il gioco si interrompe
+-genero un counter++ per tenere traccia dei click nelle caselle
 
 
 
