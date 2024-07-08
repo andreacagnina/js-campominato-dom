@@ -57,6 +57,7 @@ document.getElementById('btn_start').addEventListener('click', function () {
             if (bombs.includes(i)) {
                 selSquare.classList.add('bg_red');
                 alert(`BOOM! Hai totalizzato ${score} punti`);
+
             }
             else if (!bombs.includes(i) && !selSquare.classList.contains('bg_cel')) {
                 selSquare.classList.add('bg_cel');

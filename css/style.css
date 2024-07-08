@@ -56,3 +56,7 @@ select {
 .width7 {
     width: calc(100%/7);
 }
+
+.pointer_none {
+    pointer-events: none;
+}
