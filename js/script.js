@@ -52,6 +52,9 @@ document.getElementById('btn_start').addEventListener('click', function () {
         selSquare.addEventListener('click', function () {
             this.className += (' bg_cel');
             console.log(i);
+            if (bombs.includes((i))) {
+                console.log('fottiti');
+            }
         });
 
         selSquare.innerText = i;
