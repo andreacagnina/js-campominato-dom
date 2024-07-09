@@ -8,8 +8,9 @@ function CreaUnQuadrato() {
 // una funzione con parametro che crea un array vuoto dove il numero massimo di elementi che contiene è 16. Tramite if il contenuto viene aggiunto all'array solo se il valore randomico generato non è già presente
 function createdBombs(max) {
     const bombsCreated = [];
+    const numBombs = 16;
 
-    while (bombsCreated.length < 16) {
+    while (bombsCreated.length < numBombs) {
         let randomNum = Math.floor(Math.random() * max + 1);
 
         if (!bombsCreated.includes(randomNum)) {
@@ -46,6 +47,7 @@ document.getElementById('btn_start').addEventListener('click', function () {
 
     // l'array vuoto prende i valori dalla funzione e dalle variabili maxcels
     bombs = createdBombs(maxCels);
+    const numBombs = 16;
 
     // Ciclo per creare tanti quadrati quante sono le MaxCels. Ogni quadrato sarà clickabile e prenderà una classe per colorarsi.
     for (let i = 1; i <= maxCels; i++) {
@@ -63,6 +65,9 @@ document.getElementById('btn_start').addEventListener('click', function () {
                 selSquare.classList.add('bg_cel');
                 score++;
                 console.log(score);
+            }
+            else if ((maxCels - numBombs) === score) {
+                alert(`HAI VINTO! Hai totalizzato ${score} punti`);
             }
         });
 
